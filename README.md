@@ -48,3 +48,71 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+---
+
+## Styling and UI setup in this repo
+
+This project is preconfigured with:
+
+- NativeWind (Tailwind for React Native) with CSS variables and dark mode
+- tailwindcss-animate for utility animations
+- Path aliases via `@/*`
+- Portal host for overlays
+- shadcn-style config and a reusable Accordion component
+- `lucide-react-native` icon wrapper with `className` support
+
+### What was added
+
+- Tailwind config: `tailwind.config.js` (colors from CSS variables, dark mode, animations, hairline width)
+- Global CSS tokens: `global.css` (light/dark `:root` variables)
+- Portal host: added to `app/_layout.tsx`
+- Theme tokens and React Navigation theme: `lib/theme.ts`
+- Classname merge helper: `lib/utils.ts` (`cn`)
+- shadcn config: `components.json`
+- UI components scaffold: `components/ui/accordion.tsx`, `components/ui/icon.tsx`
+
+### Quick start
+
+1) Install deps (already done in this repo, for reference):
+
+```bash
+npx expo install nativewind tailwindcss tailwindcss-animate
+npx expo install lucide-react-native react-native-svg
+npm i class-variance-authority clsx tailwind-merge @rn-primitives/portal
+```
+
+2) Start the app:
+
+```bash
+npx expo start
+```
+
+### Using the icon wrapper
+
+```tsx
+import { Icon } from '@/components/ui/icon';
+import { ArrowRight } from 'lucide-react-native';
+
+<Icon as={ArrowRight} className="text-foreground" size={16} />
+```
+
+### Using the Accordion
+
+```tsx
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Section</AccordionTrigger>
+    <AccordionContent>Content</AccordionContent>
+  </AccordionItem>
+  {/* ... */}
+</Accordion>
+```
+
+### Notes
+
+- Dark mode is class-based (`dark`) and colors map to CSS variables in `global.css`.
+- The `PortalHost` is mounted in `app/_layout.tsx` for modals/overlays.
+- Path aliases like `@/components` and `@/lib` are configured in `tsconfig.json`.
