@@ -1,118 +1,91 @@
-# Welcome to your Expo app 👋
+# Expo NativeWind Starter - React Native Template 🚀
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A premium **React Native Starter Template** built with **Expo Router**, **NativeWind** (Tailwind CSS), and **React Native Reusables**. This template provides a robust, production-ready foundation for building modern, beautiful, and responsive mobile applications with ease.
 
-## Get started
+## 🌟 Features
 
-1. Install dependencies
+- **⚡️ Expo Router**: The standard for file-based routing in React Native, making navigation intuitive, deep-linkable, and powerful.
+- **💨 NativeWind (Tailwind CSS)**: Style your components using utility classes, just like on the web. Includes full support for **CSS variables** and **Dark Mode**.
+- **🧩 React Native Reusables**: Pre-configured, accessible UI components based on **shadcn/ui**, including Accordion, Icons, and more.
+- **✨ Animations**: Integrated `tailwindcss-animate` for smooth, utility-first animations.
+- **🌑 Dark Mode Ready**: Class-based dark mode support with CSS variables defined in `global.css`.
+- **🛠️ Developer Experience**: Path aliases (`@/*`), TypeScript support, and `cn` utility for class merging.
+- **📱 Universal**: Build for Android, iOS, and Web from a single codebase.
 
-   ```bash
-   npm install
-   ```
+## 🚀 Getting Started
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1. Installation
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-
----
-
-## Styling and UI setup in this repo
-
-This project is preconfigured with:
-
-- NativeWind (Tailwind for React Native) with CSS variables and dark mode
-- tailwindcss-animate for utility animations
-- Path aliases via `@/*`
-- Portal host for overlays
-- shadcn-style config and a reusable Accordion component
-- `lucide-react-native` icon wrapper with `className` support
-
-### What was added
-
-- Tailwind config: `tailwind.config.js` (colors from CSS variables, dark mode, animations, hairline width)
-- Global CSS tokens: `global.css` (light/dark `:root` variables)
-- Portal host: added to `app/_layout.tsx`
-- Theme tokens and React Navigation theme: `lib/theme.ts`
-- Classname merge helper: `lib/utils.ts` (`cn`)
-- shadcn config: `components.json`
-- UI components scaffold: `components/ui/accordion.tsx`, `components/ui/icon.tsx`
-
-### Quick start
-
-1) Install deps (already done in this repo, for reference):
-
-```bash
-npx expo install nativewind tailwindcss tailwindcss-animate
-npx expo install lucide-react-native react-native-svg
-npm i class-variance-authority clsx tailwind-merge @rn-primitives/portal
-```
-
-2) Start the app:
+### 2. Run the Project
 
 ```bash
 npx expo start
 ```
 
-### Using the icon wrapper
+- Press `a` for Android (emulator required).
+- Press `i` for iOS (simulator required).
+- Press `w` for Web.
+
+## 🛠️ Tech Stack & Configuration
+
+This project comes pre-configured with the best tools in the React Native ecosystem:
+
+- **Framework**: [Expo](https://expo.dev) (SDK 52+)
+- **Routing**: [Expo Router](https://docs.expo.dev/router/introduction)
+- **Styling**: [NativeWind v4](https://www.nativewind.dev/) & [Tailwind CSS](https://tailwindcss.com/)
+- **UI Library**: [React Native Reusables](https://rnr-docs.vercel.app/) (shadcn/ui for React Native)
+- **Icons**: `lucide-react-native` with `className` support
+- **Utils**: `clsx` and `tailwind-merge` for conditional styling
+
+## 🎨 UI Components
+
+This template includes a setup for **React Native Reusables** (based on shadcn/ui).
+
+### Example: Accordion
 
 ```tsx
-import { Icon } from '@/components/ui/icon';
-import { ArrowRight } from 'lucide-react-native';
-
-<Icon as={ArrowRight} className="text-foreground" size={16} />
-```
-
-### Using the Accordion
-
-```tsx
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger>Section</AccordionTrigger>
-    <AccordionContent>Content</AccordionContent>
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
   </AccordionItem>
-  {/* ... */}
-</Accordion>
+</Accordion>;
 ```
 
-### Notes
+### Example: Icons
 
-- Dark mode is class-based (`dark`) and colors map to CSS variables in `global.css`.
-- The `PortalHost` is mounted in `app/_layout.tsx` for modals/overlays.
-- Path aliases like `@/components` and `@/lib` are configured in `tsconfig.json`.
+```tsx
+import { Icon } from "@/components/ui/icon";
+import { ArrowRight } from "lucide-react-native";
+
+<Icon as={ArrowRight} className="text-foreground" size={16} />;
+```
+
+## 📂 Project Structure
+
+- `app/`: File-based routing (Expo Router).
+- `components/ui/`: Reusable UI components (shadcn style).
+- `lib/`: Utilities and theme configurations.
+- `global.css`: Global styles and CSS variables for theming.
+- `tailwind.config.js`: Tailwind configuration with custom colors and animations.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
